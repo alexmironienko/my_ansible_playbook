@@ -1,0 +1,14 @@
+---
+- name: simple playbook
+  hosts: all
+  remote_user: root
+  become: true
+  gather_facts: no
+
+  tasks:
+    - name: Update system
+      apt: update_cache=yes
+    - name: Install system dependencies
+      apt:
+        name: git
+        state: present  
